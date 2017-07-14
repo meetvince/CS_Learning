@@ -85,3 +85,24 @@ namespace DelegatesEventsLambdas.Samples
         }
     }
 }
+
+public static class DemoDelegatesMethods
+{
+    public static int Add(int x, int y)
+    {
+        return x + y;
+    }
+    public static int Subtract(int x, int y)
+    {
+        return x - y;
+    }
+}
+public class DemoDelegates
+{
+    public delegate int MyDelegate(int x, int y); //This can be defined outside a class;
+    public static void Main()
+    {
+        MyDelegate myDelegate = new MyDelegate(DemoDelegatesMethods.Add);
+        Console.WriteLine("Sum of 3, 5 is :{0}", myDelegate(3, 5));
+    }
+}
